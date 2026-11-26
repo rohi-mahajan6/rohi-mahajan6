@@ -10,12 +10,13 @@ I build test automation that runs in CI, finds real defects, and backs every cla
 
 ## Tech stack
 
-**UI and mobile:** Playwright · Selenium 4 · Appium (UiAutomator2)
-**API and contracts:** REST Assured · Playwright API testing · JSON Schema / OpenAPI (AJV)
-**Performance:** k6
-**Languages:** Java · TypeScript · JavaScript
-**Frameworks and reporting:** TestNG · Playwright Test · Allure
-**Infrastructure and CI/CD:** Docker · GitHub Actions · GitHub Pages · Android emulator in CI
+- **UI and mobile:** Playwright · Selenium 4 · Appium (UiAutomator2)
+- **API and contracts:** REST Assured · Playwright API testing · JSON Schema / OpenAPI (AJV)
+- **Performance:** k6
+- **Languages:** Java · TypeScript · JavaScript
+- **Frameworks and reporting:** TestNG · Playwright Test · Allure
+- **Infrastructure and CI/CD:** Docker · GitHub Actions · GitHub Pages · Android emulator in CI
+- **AI/Automation:** Claude Code · Python (python-docx, reportlab)
 
 ---
 
@@ -28,6 +29,15 @@ I build test automation that runs in CI, finds real defects, and backs every cla
 | **[demo-sites-synthetic-monitor](https://github.com/rohi-mahajan6/demo-sites-synthetic-monitor)** | Scheduled synthetic monitoring of 3 public demo sites. Results are stored on a data branch, with alerts and an uptime dashboard. | Node.js, Playwright, GitHub Actions (cron), Chart.js | [Live dashboard](https://rohi-mahajan6.github.io/demo-sites-synthetic-monitor/) · [CI run](https://github.com/rohi-mahajan6/demo-sites-synthetic-monitor/actions/runs/45400063311) |
 | **[inventree-api-rbac-tests](https://github.com/rohi-mahajan6/inventree-api-rbac-tests)** | A 192-row role-based access matrix for an inventory API, contract tests against the vendor's own OpenAPI schemas, and a k6 load test. Read-only checks on the public demo; real writes and load only on Docker. | JavaScript, Playwright API, AJV, k6, Docker | [Live matrix report](https://rohi-mahajan6.github.io/inventree-api-rbac-tests/) · [CI run](https://github.com/rohi-mahajan6/inventree-api-rbac-tests/actions/runs/45427115534) |
 | **[mydemoapp-appium-android](https://github.com/rohi-mahajan6/mydemoapp-appium-android)** | Android app automation on a real emulator in CI: login, cart, checkout, background and foreground, and Android 12 camera and location permission dialogs, with a GPS position set on the emulator and checked on screen. | Java 17, Appium 2, UiAutomator2, TestNG, Allure, Android emulator | [Live Allure report](https://rohi-mahajan6.github.io/mydemoapp-appium-android/) · [CI run](https://github.com/rohi-mahajan6/mydemoapp-appium-android/actions/runs/45452401750) |
+| **[job-search-agent](https://github.com/rohi-mahajan6/job-search-agent)** | Rule-driven job search agent using Claude Code to automate Naukri workflows, prescreen jobs with custom scoring, and generate tailored resumes. | Python, Claude Code, JS extractors, python-docx, reportlab | [Repo](https://github.com/rohi-mahajan6/job-search-agent) |
+
+---
+
+## Open source contributions
+
+| Project | Contribution | Status |
+| ------- | ------------ | ------ |
+| [Abhijayshah/English-Tutor-AI](https://github.com/Abhijayshah/English-Tutor-AI) | Fixed the AI tutor not replying: replaced the retired `gpt-3.5-turbo` default with a configurable `AI_MODEL` setting, and added handling for empty model replies and clearer rate-limit logs. | [PR #1](https://github.com/Abhijayshah/English-Tutor-AI/pull/1) (open) |
 
 ---
 
@@ -37,6 +47,7 @@ I build test automation that runs in CI, finds real defects, and backs every cla
 - **Found an access-control data exposure in InvenTree.** An account with **no roles** can list every user and read each one's email address and staff, superuser and active flags (FIND-001). I also documented 3 places where the API breaks its own published schema, and 1 where the real permissions differ from the documentation.
 - **Diagnosed a flaky login check in CI.** The InvenTree check in my monitor failed in CI because it typed into the login form before the page had finished resetting the form. I traced the cause from the CI evidence and fixed the check to wait for the page to finish loading and to verify the typed values before submitting.
 - **Automated Android 12 permission flows on a CI emulator.** This includes the repeated camera prompt and the precise-location choice. Two app behaviours are documented with evidence.
+- **Built a privacy-first job search agent** that automates Naukri workflows, prescreening, and resume generation.
 
 ---
 
