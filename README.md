@@ -61,3 +61,7 @@ I build test automation that runs in CI, finds real defects, and backs every cla
 - **Safe on shared systems.** Public demo sites get read-only, rate-limited checks. Anything that writes data or adds load runs against a throwaway Docker container, and the code enforces this.
 - **Defects are pinned, not hidden.** A known bug gets a test that asserts the correct behaviour. If the bug is fixed, the test result changes, so the defect list stays current.
 - **Debugging from evidence.** When CI fails, I read the screenshots, Appium logs, logcat and traces before changing code.
+
+---
+
+![Snake eating my GitHub contribution graph](https://raw.githubusercontent.com/rohi-mahajan6/rohi-mahajan6/output/github-snake-dark.svg)
